@@ -4,22 +4,31 @@ package diffsquares
 
 // SquareOfSums returns the square of the sum of the first n natural numbers
 func SquareOfSums(n int) int {
-	sum, _ := returnBothSums(n)
+	total := 0
 
-	return sum
+	for i := n; i > 0; i-- {
+		total += i
+	}
+
+	total *= total
+
+	return total
 }
 
 // SumOfSquares returns the sum of the squares of the first n natural numbers
 func SumOfSquares(n int) int {
-	_, sum := returnBothSums(n)
+	total := 0
 
-	return sum
+	for i := n; i > 0; i-- {
+		total += i * i
+	}
+
+	return total
 }
 
 // Difference returns the differente between the square of sums and the sum of the squares
 func Difference(n int) int {
-	squareOfSums := SquareOfSums(n)
-	sumOfSquares := SumOfSquares(n)
+	squareOfSums, sumOfSquares := returnBothSums(n)
 
 	return squareOfSums - sumOfSquares
 }
